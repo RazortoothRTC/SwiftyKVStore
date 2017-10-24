@@ -6,7 +6,9 @@ By extracting the minimum feature set of `Unqlite`, `SwiftyKVStore` is really si
 
 # Install
 
-comming soon...
+```bash
+pod 'SwiftyKVStore', '~> 0.1.0.alpha'
+```
 
 # Usage
 
