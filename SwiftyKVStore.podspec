@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
     s.author = {'xuyecan' => 'xuyecan@gmail.com'}
     s.license = 'Apache License 2.0'
     s.requires_arc = true
-    s.version = '0.1.0-alpha'
+    s.version = '0.1.0-alpha.1'
     s.homepage = "https://github.com/xuyecan/SwiftyKVStore"
     s.name = "SwiftyKVStore"
 

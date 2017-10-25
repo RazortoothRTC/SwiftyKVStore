@@ -61,9 +61,15 @@
         if (rc != UNQLITE_OK) {
             // NSLog(@"store kv failed, error code: %d", rc);
             success = false;
-        } else {
-            success = true;
+            return;
         }
+        rc = unqlite_commit(pDb);
+        if (rc != UNQLITE_OK) {
+            // NSLog(@"commit putting kv failed, error code: %d", rc);
+            success = false;
+            return;
+        }
+        success = true;
     });
     return success;
 }
@@ -104,9 +110,14 @@
             success = false;
             // NSLog(@"delete kv failed, error code: %d", rc);
             return;
-        } else {
-            success = true;
         }
+        rc = unqlite_commit(pDb);
+        if (rc != UNQLITE_OK) {
+            success = false;
+            // NSLog(@"commit deleting kv failed, error code: %d", rc);
+            return;
+        }
+        success = true;
     });
     return success;
 }
