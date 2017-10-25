@@ -10,26 +10,21 @@ import UIKit
 
 import SwiftyKVStore
 
+private let ALYUniconfLocalCacheKey = "ALYUniconfLocalCacheKey"
+
 class ViewController: UIViewController {
+
+    private var kvStore: SwiftyKVStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        let kvStore = SwiftyKVStore(name: "test1")
+        kvStore = SwiftyKVStore(name: "aly_uniconf_cache_kv_store")
+        // kvStore.put(key: ALYUniconfLocalCacheKey, value: "bcc")
 
-        kvStore.put(key: "key1", value: "value1")
-
-        if let value = kvStore.get(key: "key1") {
+        if let value = kvStore.get(key: ALYUniconfLocalCacheKey) {
             print("value: \(value)")
-        }
-
-        kvStore.delete(key: "key1")
-
-        if let value = kvStore.get(key: "key1") {
-            print("value: \(value)")
-        } else {
-            print("nothing")
         }
     }
 
