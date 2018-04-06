@@ -17,7 +17,7 @@
 		9468BB161F9F755E00FB83C6 /* unqlite.h in Headers */ = {isa = PBXBuildFile; fileRef = 9468BB131F9F755E00FB83C6 /* unqlite.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		9468BB171F9F755E00FB83C6 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9468BB141F9F755E00FB83C6 /* license.txt */; };
 		947ABC791F9F80BD00DC7C41 /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 947ABC771F9F80BD00DC7C41 /* Store.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		947ABC7A1F9F80BD00DC7C41 /* Store.mm in Sources */ = {isa = PBXBuildFile; fileRef = 947ABC781F9F80BD00DC7C41 /* Store.mm */; };
+		947ABC7A1F9F80BD00DC7C41 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 947ABC781F9F80BD00DC7C41 /* Store.m */; };
 		947ABC7C1F9F80EC00DC7C41 /* SwiftyKVStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947ABC7B1F9F80EC00DC7C41 /* SwiftyKVStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		9468BB131F9F755E00FB83C6 /* unqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unqlite.h; sourceTree = "<group>"; };
 		9468BB141F9F755E00FB83C6 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		947ABC771F9F80BD00DC7C41 /* Store.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
-		947ABC781F9F80BD00DC7C41 /* Store.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Store.mm; sourceTree = "<group>"; };
+		947ABC781F9F80BD00DC7C41 /* Store.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
 		947ABC7B1F9F80EC00DC7C41 /* SwiftyKVStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyKVStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,7 @@
 				9468BB111F9F751500FB83C6 /* Unqlite */,
 				9468BB061F9F6C0D00FB83C6 /* SwiftyKVStore.h */,
 				947ABC771F9F80BD00DC7C41 /* Store.h */,
-				947ABC781F9F80BD00DC7C41 /* Store.mm */,
+				947ABC781F9F80BD00DC7C41 /* Store.m */,
 				947ABC7B1F9F80EC00DC7C41 /* SwiftyKVStore.swift */,
 				9468BB071F9F6C0D00FB83C6 /* Info.plist */,
 			);
@@ -191,16 +191,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = xuyecan;
 				TargetAttributes = {
 					9431C0461F9F95A500901820 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					9468BB021F9F6C0D00FB83C6 = {
 						CreatedOnToolsVersion = 9.0.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -261,7 +262,7 @@
 			files = (
 				947ABC7C1F9F80EC00DC7C41 /* SwiftyKVStore.swift in Sources */,
 				9468BB151F9F755E00FB83C6 /* unqlite.c in Sources */,
-				947ABC7A1F9F80BD00DC7C41 /* Store.mm in Sources */,
+				947ABC7A1F9F80BD00DC7C41 /* Store.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +306,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxyycc.xuyecan.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -320,7 +322,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxyycc.xuyecan.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -339,6 +342,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -346,6 +350,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -399,6 +404,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -406,6 +412,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -458,7 +465,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/SwiftyKVStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -482,7 +490,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/SwiftyKVStore";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

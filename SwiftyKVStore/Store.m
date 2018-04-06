@@ -43,7 +43,7 @@
         }
         NSString *dbFilePath = [dbDefaultFolder stringByAppendingPathComponent:dbName];
         NSLog(@"db %@ store at path: %@", dbName, dbFilePath);
-        rc = unqlite_open(&pDb, dbFilePath.UTF8String, UNQLITE_OPEN_CREATE);
+        rc = unqlite_open(&self->pDb, dbFilePath.UTF8String, UNQLITE_OPEN_CREATE);
         if (rc != UNQLITE_OK) {
             NSLog(@"open db failed, error code: %d", rc);
         }
@@ -57,13 +57,13 @@
         const char *pKey = key.UTF8String;
         const char *pValue = value.UTF8String;
 
-        rc = unqlite_kv_store(pDb, pKey, -1, pValue, strlen(pValue));
+        rc = unqlite_kv_store(self->pDb, pKey, -1, pValue, strlen(pValue));
         if (rc != UNQLITE_OK) {
             // NSLog(@"store kv failed, error code: %d", rc);
             success = false;
             return;
         }
-        rc = unqlite_commit(pDb);
+        rc = unqlite_commit(self->pDb);
         if (rc != UNQLITE_OK) {
             // NSLog(@"commit putting kv failed, error code: %d", rc);
             success = false;
@@ -81,14 +81,14 @@
         unqlite_int64 len;
         const char *pKey = key.UTF8String;
 
-        rc = unqlite_kv_fetch(pDb, pKey, -1, NULL, &len);
+        rc = unqlite_kv_fetch(self->pDb, pKey, -1, NULL, &len);
         if (rc != UNQLITE_OK) {
             // NSLog(@"fetch kv failed, error code: %d", rc);
             return;
         }
 
         char *valueBuff = (char *)malloc((size_t)len);
-        rc = unqlite_kv_fetch(pDb, pKey, -1, valueBuff, &len);
+        rc = unqlite_kv_fetch(self->pDb, pKey, -1, valueBuff, &len);
         if (rc != UNQLITE_OK) {
             // NSLog(@"fetch kv failed, error code: %d", rc);
             return;
@@ -105,13 +105,13 @@
         int rc;
         const char *pKey = key.UTF8String;
 
-        rc = unqlite_kv_delete(pDb, pKey, -1);
+        rc = unqlite_kv_delete(self->pDb, pKey, -1);
         if (rc != UNQLITE_OK) {
             success = false;
             // NSLog(@"delete kv failed, error code: %d", rc);
             return;
         }
-        rc = unqlite_commit(pDb);
+        rc = unqlite_commit(self->pDb);
         if (rc != UNQLITE_OK) {
             success = false;
             // NSLog(@"commit deleting kv failed, error code: %d", rc);
@@ -125,7 +125,7 @@
 - (void)close {
     dispatch_sync(serialWorker, ^{
         int rc;
-        rc = unqlite_close(pDb);
+        rc = unqlite_close(self->pDb);
         if (rc != UNQLITE_OK) {
             // NSLog(@"close db failed, error code: %d", rc);
         }
