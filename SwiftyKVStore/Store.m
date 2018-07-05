@@ -57,7 +57,7 @@
         const char *pKey = key.UTF8String;
         const char *pValue = value.UTF8String;
 
-        rc = unqlite_kv_store(self->pDb, pKey, -1, pValue, strlen(pValue));
+        rc = unqlite_kv_store(self->pDb, pKey, -1, pValue, strlen(pValue) + 1);
         if (rc != UNQLITE_OK) {
             // NSLog(@"store kv failed, error code: %d", rc);
             success = false;
