@@ -31,6 +31,8 @@ class ViewController: UIViewController {
         } else {
             print("nothing")
         }
+
+        kvStore.deleteAll(name: "test1")
     }
 
     override func didReceiveMemoryWarning() {

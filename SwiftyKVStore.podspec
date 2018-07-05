@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.source = { :git => 'https://github.com/xuyecan/SwiftyKVStore.git', :tag => s.version.to_s }
 
     s.summary = 'Simple Key/Value store for Swift backed by Unqlite.'
-    s.description = 'Aother Simple Key/Value store for Swift backed by Unqlite.'
+    s.description = 'Another Simple Key/Value store for Swift backed by Unqlite.'
 
     s.ios.deployment_target = '8.0'
     s.preserve_paths = 'SwiftyKVStore/StorePrivate/*'

@@ -29,6 +29,10 @@ public final class SwiftyKVStore {
         store.delete(key)
     }
 
+    public func deleteAll(name: String) {
+        store.deleteAll(name)
+    }
+
     deinit {
         store.close()
     }

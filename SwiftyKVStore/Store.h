@@ -18,6 +18,8 @@
 
 - (bool)delete:(NSString *)key;
 
+- (bool)deleteAll:(NSString *)dbName;
+
 - (void)close;
 
 @end

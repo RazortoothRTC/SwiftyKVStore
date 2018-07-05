@@ -122,6 +122,26 @@
     return success;
 }
 
+- (bool)deleteAll:(NSString *)dbName {
+    __block BOOL success;
+    dispatch_sync(serialWorker, ^{
+
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *dbDefaultFolder = [paths[0] stringByAppendingPathComponent:@"/swiftykvstore/"];
+        NSString *dbFilePath = [dbDefaultFolder stringByAppendingPathComponent:dbName];
+
+        NSFileManager *mgr = [NSFileManager defaultManager];
+        NSError *error = nil;
+        [mgr removeItemAtPath:dbFilePath error:&error];
+        if (error != nil) {
+            NSLog(@"delete db %@ failed, error msg: %@", dbName, error);
+        }
+        NSLog(@"delete db %@ success.", dbName);
+        success = true;
+    });
+    return success;
+}
+
 - (void)close {
     dispatch_sync(serialWorker, ^{
         int rc;
